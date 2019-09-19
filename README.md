@@ -1,2 +1,2 @@
 # ACS712_Irms
-Calculate Irms using ACS712
+Calculate Vpp, Vrms, Irms for current sensors like ACS712
