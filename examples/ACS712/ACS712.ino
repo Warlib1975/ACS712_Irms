@@ -1,7 +1,7 @@
 #include "Irms_Calc.h"
 const int sensorIn = A0;
 
-Irms_Calc acs712;
+  Irms_Calc acs712;
 
 void setup(){ 
  Serial.begin(9600);

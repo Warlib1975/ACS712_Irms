@@ -10,16 +10,12 @@ enum scaleFactor {
   ACS712_30A = 66
 };
 
-class ACS712_Irms
+class Irms_Calc
 {
   private:
-    //double ZeroSample = 0;
     double VoltsPerSample = 0;
-    //double Voltage = 0;
-    //double VRMS = 0;
     double AmpsRMS = 0;
     uint32_t start_time = 0;
-    //int readValue = 0;
     int maxValue = 0;
     int minValue = 0;
     
@@ -33,6 +29,8 @@ class ACS712_Irms
     double VRMS = 0;
     double Vpp = 0;
     double Vpeak = 0;
+    double Pav = 0;
+
 
     void Init()
     {
@@ -55,7 +53,8 @@ class ACS712_Irms
         Vpeak = Vpp/2; //Volts peak/Amplitude
         VRMS = Vpeak * 0.707;
         AmpsRMS = (VRMS * 1000)/mVperAmp - ZeroCorrection;
-        Serial.println("Amps RMS: " + String(AmpsRMS));
+        Pav = (VRMS * 1000) * AmpsRMS;
+        //Serial.println("Amps RMS: " + String(AmpsRMS));
         maxValue = 0;
         minValue = ADCSamples;
         start_time = millis();
