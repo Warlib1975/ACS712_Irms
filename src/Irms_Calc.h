@@ -1,6 +1,6 @@
 //http://www.bizkit.ru/2019/08/01/14312/
-#ifndef ACS712_Irms_h
-#define ACS712_Irms_h
+#ifndef Irms_Calc_h
+#define Irms_Calc_h
 
 #include "Arduino.h"
 
