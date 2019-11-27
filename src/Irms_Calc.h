@@ -30,6 +30,7 @@ class Irms_Calc
     double Vpp = 0;
     double Vpeak = 0;
     double Pav = 0;
+    double Voltage = 220; //The equipment voltage
 
 
     void Init()
@@ -53,7 +54,8 @@ class Irms_Calc
         Vpeak = Vpp/2; //Volts peak/Amplitude
         VRMS = Vpeak * 0.707;
         AmpsRMS = (VRMS * 1000)/mVperAmp - ZeroCorrection;
-        Pav = (VRMS * 1000) * AmpsRMS;
+        //Pav = (VRMS * 1000) * AmpsRMS;
+        Pav = Voltage * AmpsRMS;
         //Serial.println("Amps RMS: " + String(AmpsRMS));
         maxValue = 0;
         minValue = ADCSamples;
